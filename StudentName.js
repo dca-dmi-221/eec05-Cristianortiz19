@@ -29,8 +29,22 @@ let testWordsList = [
 
 // pruebe para cada palabra A, B y C
 function wordSearcherIgnoreCase(targetWord, wordsList) {
-   // :)
+    targetWord = targetWord.toLowerCase();
+    let estado = false;
+   for (let index = 0; index < wordsList.length; index++) {
+       const word = wordsList[index];
+       targetWord = targetWord.normalize('NFD').replace(/[\u00C0-\u00FF]/g, '')
+       if(targetWord == word.toLowerCase()){
+           estado = true;
+       }
+   }
+   if(estado === true){
+    console.log(targetWord + " si se encuentra en la lista.");
+    }else{
+    console.log(targetWord + " no se encuentra en la lista.");
+    }
 }
+wordSearcherIgnoreCase(testTargetWordC, testWordsList);
 
 
 

@@ -47,7 +47,9 @@ function wordSearcherIgnoreCase(targetWord, wordsList) {
 function normalizeWord(word){
     return word = word.normalize('NFD').replace(/[\u00C0-\u00FF]/g, '');
 }
+wordSearcherIgnoreCase(testTargetWordA, testWordsList);
 wordSearcherIgnoreCase(testTargetWordB, testWordsList);
+wordSearcherIgnoreCase(testTargetWordC, testWordsList);
 
 
 
@@ -87,7 +89,8 @@ function wordLengthClassifier(wordsList) {
 wordLengthClassifier(testSampleList)
 
 
-/*Dado un string retorna si este es o no un palíndromo. No debe diferenciar entre mayúsculas y minúsculas*/
+/*Dado un string retorna si este es o no un palíndromo. 
+No debe diferenciar entre mayúsculas y minúsculas*/
 
 let onVerificationWordA = "reconocer";
 let onVerificationWordB = "querer";
@@ -95,9 +98,17 @@ let onVerificationWordC = "Gomosos";
 let onVerificationWordD = "Somos";
 
 function palindromeVerifier(word) {
-   // :)
+    word = word.toLowerCase()
+    if(word.charAt(0) === word.charAt(word.length-1)){
+        console.log(word + " si es un palíndromo")
+    }else{
+        console.log(word + " no es un palíndromo")
+    }
 }
-
+palindromeVerifier(onVerificationWordA);
+palindromeVerifier(onVerificationWordB);
+palindromeVerifier(onVerificationWordC);
+palindromeVerifier(onVerificationWordD);
 
 /*Dado un objeto que contiene una lista de palabras contar el
 número de letras vocales y consonantes y retornarlo en un arreglo de 2 posiciones.*/

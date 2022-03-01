@@ -30,10 +30,10 @@ let testWordsList = [
 // pruebe para cada palabra A, B y C
 function wordSearcherIgnoreCase(targetWord, wordsList) {
     targetWord = targetWord.toLowerCase();
+    targetWord = normalizeWord(targetWord);
     let estado = false;
    for (let index = 0; index < wordsList.length; index++) {
        const word = wordsList[index];
-       targetWord = targetWord.normalize('NFD').replace(/[\u00C0-\u00FF]/g, '')
        if(targetWord == word.toLowerCase()){
            estado = true;
        }
@@ -44,7 +44,10 @@ function wordSearcherIgnoreCase(targetWord, wordsList) {
     console.log(targetWord + " no se encuentra en la lista.");
     }
 }
-wordSearcherIgnoreCase(testTargetWordC, testWordsList);
+function normalizeWord(word){
+    return word = word.normalize('NFD').replace(/[\u00C0-\u00FF]/g, '');
+}
+wordSearcherIgnoreCase(testTargetWordB, testWordsList);
 
 
 
@@ -65,8 +68,23 @@ let testSampleList = [
 ];
 
 function wordLengthClassifier(wordsList) {
-    // :)
+    let masLarga = wordsList[0];
+    let masCorta = wordsList[0];
+    let promedio = 0;
+    for (let index = 0; index < wordsList.length; index++) {
+        if(wordsList[index].length > masLarga.length){
+            masLarga = wordsList[index];
+        }
+        if(wordsList[index].length < masCorta.length){
+            masCorta = wordsList[index];
+        }
+        promedio += wordsList[index].length;
+    }
+    console.log(masLarga + " es la palabra mas larga");
+    console.log(masCorta + " es la palabra mas corta");
+    console.log("El promedio de letras es de: " + promedio);
 }
+wordLengthClassifier(testSampleList)
 
 
 /*Dado un string retorna si este es o no un palíndromo. No debe diferenciar entre mayúsculas y minúsculas*/

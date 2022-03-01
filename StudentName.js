@@ -116,8 +116,23 @@ let containerTestObject = {
     list:["Cumbamba", "Oreja", "Nariz", "Ojo", "Lengua", "Diente"]
 }
 function lettersCounter(objectContainer) {
-   // :)
+    let vocales = [];
+    let consonantes = [];
+   for (let index = 0; index < containerTestObject.list.length; index++) {
+       const element1 = containerTestObject.list[index];
+       for (let a = 0; a < containerTestObject.list[index].length; a++) {
+           const element2 = containerTestObject.list[index][a].toLowerCase();
+           if(element2 == 'a' || element2 == 'e' || element2 == 'i' || element2 == 'o' || element2 == 'u'){
+               vocales.push(element2);
+           }else{
+               consonantes.push(element2);
+           }
+       }
+   }
+   console.log(...vocales);
+   console.log(...consonantes);
 }
+lettersCounter(containerTestObject);
 
 
 /*Dado 2 arreglos de strings retornar un arreglo con todos los strings.*/

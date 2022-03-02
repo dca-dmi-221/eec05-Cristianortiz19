@@ -119,7 +119,6 @@ function lettersCounter(objectContainer) {
     let vocales = [];
     let consonantes = [];
    for (let index = 0; index < containerTestObject.list.length; index++) {
-       const element1 = containerTestObject.list[index];
        for (let a = 0; a < containerTestObject.list[index].length; a++) {
            const element2 = containerTestObject.list[index][a].toLowerCase();
            if(element2 == 'a' || element2 == 'e' || element2 == 'i' || element2 == 'o' || element2 == 'u'){
@@ -153,7 +152,10 @@ let testWordToExplore = "amar";
 let wordsToVerify = ["amar", "arma", "rana" , "mara", "rama", "roma", "amor", "ramon", "omar"];
 
 function anagramVerifier(wordToExplore, listOfWords) {
-   // :)
+   for (let index = 0; index < listOfWords.length; index++) {
+       const words = listOfWords[index];
+       
+   }
 }
 
 /*Dado un objeto que contiene 2 arreglos, retornar un objeto con 1
@@ -165,7 +167,17 @@ let testObjMultiContainer = {
 };
 
 function vocalsRemoverFromObject(objectMultiContainer) {
-    // :)
+    let consonantes = [];
+    for (let index = 0; index < objectMultiContainer.listA.length; index++) {
+        for (let a = 0; a < objectMultiContainer.listA[index].length; a++) {
+            const element2 = objectMultiContainer.listA[index][a];
+            if(element2 ==! 'a' || element2 ==! 'e' || element2 ==! 'i' || element2 ==! 'o' || element2 ==! 'u'){
+                consonantes.push(element2);
+            }
+        }
+    }
+    objectMultiContainer = {consonantes};
+    return console.log(consonantes)
 }
 
 console.log(vocalsRemoverFromObject(testObjMultiContainer));

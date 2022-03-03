@@ -171,7 +171,7 @@ function vocalsRemoverFromObject(objectMultiContainer) {
     for (let index = 0; index < objectMultiContainer.listA.length; index++) {
         for (let a = 0; a < objectMultiContainer.listA[index].length; a++) {
             const element2 = objectMultiContainer.listA[index][a];
-            if(element2 ==! 'a' || element2 ==! 'e' || element2 ==! 'i' || element2 ==! 'o' || element2 ==! 'u'){
+            if(element2 !== 'a' || element2 !== 'e' || element2 !== 'i' || element2 !== 'o' || element2 !== 'u'){
                 consonantes.push(element2);
             }
         }
@@ -187,9 +187,22 @@ console.log(vocalsRemoverFromObject(testObjMultiContainer));
 let someWordsToTest = ["compañeros", "estudiantes", "señores", "amigos", "graduandos", "artistas", "universitarios"];
 
 function lastVocalReplacer(words) {
-    // :)
+    let contador = 0;
+    for (let index = 0; index < words.length; index++) {
+        const word = words[index];
+        for (let a = word.length; a > -1; a--) {
+            const letter = word[a];
+            if(letter === 'a' || letter === 'e' || letter === 'i' || letter === 'o' || letter === 'u'){
+                contador++;
+            }
+            if(contador === 1){
+                letter.replace(a,"x");
+            }
+        }
+    }
+    console.log(words)
 }
-
+lastVocalReplacer(someWordsToTest);
 
 /*Dada una lista de palabras verificar si alguna de las palabras es la
 versión al revés de alguna de las palabras de una segunda lista,
